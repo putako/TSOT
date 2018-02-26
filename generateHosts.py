@@ -24,7 +24,7 @@ class GenerateHosts(object):
     f = open('home/docker-compose.yml', 'a')
     f.write('''  host%s%s:
     build: ./%s
-    image: ./%s
+    image: %s
     networks:
       - %s\n''' % (networkName, hostname, machineId, machineId, networkName))
     f.close()
