@@ -38,11 +38,11 @@ def deepenNetworks(lhch):   # Rule 3
   if lhch == '#':
     if rnum < 60:
       rhstr = '#'
-    elif rnum < 70:
+    elif rnum < 65:
       rhstr = '#<#>'
-    elif rnum < 80:
+    elif rnum < 70:
       rhstr = '#<##>'
-    elif rnum < 90:
+    elif rnum < 85:
       rhstr = '#<###>'
     else:
       rhstr = '#<#####>'
@@ -70,7 +70,7 @@ def createEndpoints(lhch):   # Rule 5
   rnum = random.randint(0, 100)
   rhstr = ""
   if lhch == '#':
-    if rnum < 50:
+    if rnum < 30:
       rhstr = 'E'
     else:
       rhstr = '#'
@@ -88,7 +88,7 @@ def capEndpoints(lhch):   # Rule 6
   #print rhstr
   return rhstr
   
-def vulnerablizeEndpoints(lhch):   # Rule 6
+def vulnerablizeEndpoints(lhch):   # Rule 7
   rnum = random.randint(0, 100)
   rhstr = ""
   if lhch == 'E':
@@ -107,7 +107,7 @@ def vulnerablizeEndpoints(lhch):   # Rule 6
   #print rhstr
   return rhstr
   
-def finalizeVulnerabilities(lhch):   # Rule 6
+def finalizeVulnerabilities(lhch):   # Rule 8
   rnum = str(random.randint(0, 100))
   # add in stuff to make sure you don't get the same vulnerability twice.
   rhstr = ""
@@ -211,8 +211,8 @@ def createLSystem(numIters,axiom):
   startString = endString
   endString = ""
   
-  print "done now"
   print startString
+  print "done now"
 
 print "Enter a lsysIter:",
 lsysIter = int(raw_input())
