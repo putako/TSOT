@@ -177,15 +177,16 @@ def processString8(oldStr):
 def createLSystem(numIters,axiom):
   startString = axiom
   endString = ""
+  
+  endString = endString + processString1(startString)
+  startString = endString
+  endString = ""
+  
+  endString = endString + processString2(startString)
+  startString = endString
+  endString = ""
+  
   for i in range(numIters):
-	endString = endString + processString1(startString)
-	startString = endString
-	endString = ""
-	
-	endString = endString + processString2(startString)
-	startString = endString
-	endString = ""
-	
 	endString = endString + processString3(startString)
 	startString = endString
 	endString = ""
