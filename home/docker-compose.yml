@@ -2,381 +2,139 @@ version: "3"
   hostmachine_0:
     build: ./machine_0
     image: machine_0
-    ports:
-     - "2222:22"
     networks:
       - network0
-  hostdevice_1:
-    build: ./device_1
-    image: device_1
-    ports:
-     - "2222:22"
+  hostmachine_1:
+    build: ./machine_1
+    image: machine_1
+    networks:
+      - network0
+  hostdevice_2:
+    build: ./device_2
+    image: device_2
     networks:
       - network1
       - network0
-  hostmachine_2:
-    build: ./machine_2
-    image: machine_2
-    ports:
-     - "2222:22"
-    networks:
-      - network1
   hostmachine_3:
     build: ./machine_3
     image: machine_3
-    ports:
-     - "2222:22"
     networks:
-      - network1
-  hostdevice_4:
-    build: ./device_4
-    image: device_4
-    ports:
-     - "2222:22"
+      - network0
+  hostmachine_4:
+    build: ./machine_4
+    image: machine_4
     networks:
       - network2
-      - network1
   hostdevice_5:
     build: ./device_5
     image: device_5
-    ports:
-     - "2222:22"
     networks:
       - network3
       - network2
   hostmachine_6:
     build: ./machine_6
     image: machine_6
-    ports:
-     - "2222:22"
     networks:
-      - network0
+      - network3
   hostmachine_7:
     build: ./machine_7
     image: machine_7
-    ports:
-     - "2222:22"
     networks:
-      - network0
-  hostdevice_8:
-    build: ./device_8
-    image: device_8
-    ports:
-     - "2222:22"
+      - network3
+  hostmachine_8:
+    build: ./machine_8
+    image: machine_8
     networks:
-      - network4
-      - network0
+      - network2
   hostmachine_9:
     build: ./machine_9
     image: machine_9
-    ports:
-     - "2222:22"
     networks:
-      - network4
+      - network2
   hostmachine_10:
     build: ./machine_10
     image: machine_10
-    ports:
-     - "2222:22"
     networks:
-      - network4
+      - network2
   hostmachine_11:
     build: ./machine_11
     image: machine_11
-    ports:
-     - "2222:22"
     networks:
       - network4
   hostmachine_12:
     build: ./machine_12
     image: machine_12
-    ports:
-     - "2222:22"
     networks:
       - network4
-  hostmachine_13:
-    build: ./machine_13
-    image: machine_13
-    ports:
-     - "2222:22"
+  hostdevice_13:
+    build: ./device_13
+    image: device_13
     networks:
-      - network0
+      - network5
+      - network4
   hostmachine_14:
     build: ./machine_14
     image: machine_14
-    ports:
-     - "2222:22"
     networks:
       - network5
   hostmachine_15:
     build: ./machine_15
     image: machine_15
-    ports:
-     - "2222:22"
     networks:
       - network5
-  hostdevice_16:
-    build: ./device_16
-    image: device_16
-    ports:
-     - "2222:22"
+  hostmachine_16:
+    build: ./machine_16
+    image: machine_16
     networks:
-      - network6
       - network5
   hostmachine_17:
     build: ./machine_17
     image: machine_17
-    ports:
-     - "2222:22"
+    networks:
+      - network5
+  hostmachine_18:
+    build: ./machine_18
+    image: machine_18
+    networks:
+      - network4
+  hostdevice_19:
+    build: ./device_19
+    image: device_19
     networks:
       - network6
-  hostdevice_18:
-    build: ./device_18
-    image: device_18
-    ports:
-     - "2222:22"
-    networks:
-      - network7
-      - network6
-  hostmachine_19:
-    build: ./machine_19
-    image: machine_19
-    ports:
-     - "2222:22"
-    networks:
-      - network6
+      - network4
   hostmachine_20:
     build: ./machine_20
     image: machine_20
-    ports:
-     - "2222:22"
     networks:
       - network6
   hostmachine_21:
     build: ./machine_21
     image: machine_21
-    ports:
-     - "2222:22"
     networks:
       - network6
   hostmachine_22:
     build: ./machine_22
     image: machine_22
-    ports:
-     - "2222:22"
     networks:
-      - network5
+      - network4
   hostdevice_23:
     build: ./device_23
     image: device_23
-    ports:
-     - "2222:22"
     networks:
-      - network8
-      - network5
+      - network7
+      - network4
   hostdevice_24:
     build: ./device_24
     image: device_24
-    ports:
-     - "2222:22"
     networks:
-      - network9
       - network8
-  hostdevice_25:
-    build: ./device_25
-    image: device_25
-    ports:
-     - "2222:22"
+      - network7
+  hostmachine_25:
+    build: ./machine_25
+    image: machine_25
     networks:
-      - network10
-      - network5
-  hostdevice_26:
-    build: ./device_26
-    image: device_26
-    ports:
-     - "2222:22"
-    networks:
-      - network11
-      - network10
-  hostdevice_27:
-    build: ./device_27
-    image: device_27
-    ports:
-     - "2222:22"
-    networks:
-      - network12
-      - network11
-  hostmachine_28:
-    build: ./machine_28
-    image: machine_28
-    ports:
-     - "2222:22"
-    networks:
-      - network10
-  hostmachine_29:
-    build: ./machine_29
-    image: machine_29
-    ports:
-     - "2222:22"
-    networks:
-      - network10
-  hostmachine_30:
-    build: ./machine_30
-    image: machine_30
-    ports:
-     - "2222:22"
-    networks:
-      - network5
-  hostdevice_31:
-    build: ./device_31
-    image: device_31
-    ports:
-     - "2222:22"
-    networks:
-      - network13
-      - network5
-  hostdevice_32:
-    build: ./device_32
-    image: device_32
-    ports:
-     - "2222:22"
-    networks:
-      - network14
-      - network13
-  hostdevice_33:
-    build: ./device_33
-    image: device_33
-    ports:
-     - "2222:22"
-    networks:
-      - network15
-      - network5
-  hostdevice_34:
-    build: ./device_34
-    image: device_34
-    ports:
-     - "2222:22"
-    networks:
-      - network16
-      - network15
-  hostmachine_35:
-    build: ./machine_35
-    image: machine_35
-    ports:
-     - "2222:22"
-    networks:
-      - network15
-  hostmachine_36:
-    build: ./machine_36
-    image: machine_36
-    ports:
-     - "2222:22"
-    networks:
-      - network15
-  hostdevice_37:
-    build: ./device_37
-    image: device_37
-    ports:
-     - "2222:22"
-    networks:
-      - network17
-      - network15
-  hostmachine_38:
-    build: ./machine_38
-    image: machine_38
-    ports:
-     - "2222:22"
-    networks:
-      - network18
-  hostmachine_39:
-    build: ./machine_39
-    image: machine_39
-    ports:
-     - "2222:22"
-    networks:
-      - network18
-  hostdevice_40:
-    build: ./device_40
-    image: device_40
-    ports:
-     - "2222:22"
-    networks:
-      - network19
-      - network18
-  hostmachine_41:
-    build: ./machine_41
-    image: machine_41
-    ports:
-     - "2222:22"
-    networks:
-      - network19
-  hostdevice_42:
-    build: ./device_42
-    image: device_42
-    ports:
-     - "2222:22"
-    networks:
-      - network20
-      - network19
-  hostmachine_43:
-    build: ./machine_43
-    image: machine_43
-    ports:
-     - "2222:22"
-    networks:
-      - network19
-  hostdevice_44:
-    build: ./device_44
-    image: device_44
-    ports:
-     - "2222:22"
-    networks:
-      - network21
-      - network19
-  hostmachine_45:
-    build: ./machine_45
-    image: machine_45
-    ports:
-     - "2222:22"
-    networks:
-      - network19
-  hostmachine_46:
-    build: ./machine_46
-    image: machine_46
-    ports:
-     - "2222:22"
-    networks:
-      - network19
-  hostdevice_47:
-    build: ./device_47
-    image: device_47
-    ports:
-     - "2222:22"
-    networks:
-      - network22
-      - network19
-  hostdevice_48:
-    build: ./device_48
-    image: device_48
-    ports:
-     - "2222:22"
-    networks:
-      - network23
-      - network22
-  hostmachine_49:
-    build: ./machine_49
-    image: machine_49
-    ports:
-     - "2222:22"
-    networks:
-      - network18
-  hostmachine_50:
-    build: ./machine_50
-    image: machine_50
-    ports:
-     - "2222:22"
-    networks:
-      - network18
+      - network4
 
 ################ NETWORKING ################
 networks:
@@ -406,50 +164,5 @@ networks:
     driver: bridge
 
   network8:
-    driver: bridge
-
-  network9:
-    driver: bridge
-
-  network10:
-    driver: bridge
-
-  network11:
-    driver: bridge
-
-  network12:
-    driver: bridge
-
-  network13:
-    driver: bridge
-
-  network14:
-    driver: bridge
-
-  network15:
-    driver: bridge
-
-  network16:
-    driver: bridge
-
-  network17:
-    driver: bridge
-
-  network18:
-    driver: bridge
-
-  network19:
-    driver: bridge
-
-  network20:
-    driver: bridge
-
-  network21:
-    driver: bridge
-
-  network22:
-    driver: bridge
-
-  network23:
     driver: bridge
 

@@ -68,8 +68,6 @@ def dockerWriter(charList):
 			f.write('  host%s:\n' % machineName)
 			f.write('    build: ./%s\n' % machineName)
 			f.write('    image: %s\n' % machineName)
-                        f.write('    ports:\n')
-                        f.write('     - "2222:22"\n')
 			f.write('    networks:\n')
 			f.write('      - %s\n' % ("network" + str(networkID[-1])))
 			if charList[index - 1] == '<':
