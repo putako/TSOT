@@ -1,7 +1,7 @@
 import random
 
 class Lsys:
-	def widenNetworks(lhch):   # Rule 1
+	def widenNetworks(self, lhch):   # Rule 1
 		rnum = random.randint(0, 100)
 		rhstr = ""
 		if lhch == 'N':
@@ -14,11 +14,11 @@ class Lsys:
 		else:
 			rhstr = lhch
 		#print rhstr
-		return rhstr    
-			
-	def populateBaseNetwork(lhch):   # Rule 2
+		return rhstr
+
+	def populateBaseNetwork(self, lhch):   # Rule 2
 		rnum = random.randint(0, 100)
-		rhstr = ""        
+		rhstr = ""
 		if lhch == 'N':
 			if rnum < 30:
 				rhstr = '###'
@@ -30,8 +30,8 @@ class Lsys:
 			rhstr = lhch
 		#print rhstr
 		return rhstr
-		
-	def deepenNetworks(lhch):   # Rule 3
+
+	def deepenNetworks(self, lhch):   # Rule 3
 		rnum = random.randint(0, 100)
 		rhstr = ""
 		if lhch == '#':
@@ -49,8 +49,8 @@ class Lsys:
 			rhstr = lhch
 		#print rhstr
 		return rhstr
-	  
-	def stringifyNetworks(lhch):   # Rule 4
+
+	def stringifyNetworks(self, lhch):   # Rule 4
 		rnum = random.randint(0, 100)
 		rhstr = ""
 		if lhch == '#':
@@ -64,8 +64,8 @@ class Lsys:
 			rhstr = lhch
 		#print rhstr
 		return rhstr
-	  
-	def createEndpoints(lhch):   # Rule 5
+
+	def createEndpoints(self, lhch):   # Rule 5
 		rnum = random.randint(0, 100)
 		rhstr = ""
 		if lhch == '#':
@@ -77,8 +77,8 @@ class Lsys:
 			rhstr = lhch
 		#print rhstr
 		return rhstr
-	  
-	def capEndpoints(lhch):   # Rule 6
+
+	def capEndpoints(self, lhch):   # Rule 6
 		rhstr = ""
 		if lhch == '#':
 			rhstr = 'E'
@@ -86,8 +86,8 @@ class Lsys:
 			rhstr = lhch
 		#print rhstr
 		return rhstr
-	  
-	def vulnerablizeEndpoints(lhch):   # Rule 7
+
+	def vulnerablizeEndpoints(self, lhch):   # Rule 7
 		rnum = random.randint(0, 100)
 		rhstr = ""
 		if lhch == 'E':
@@ -105,8 +105,8 @@ class Lsys:
 			rhstr = lhch
 		#print rhstr
 		return rhstr
-	  
-	def finalizeVulnerabilities(lhch):   # Rule 8
+
+	def finalizeVulnerabilities(self, lhch):   # Rule 8
 		rnum = str(random.randint(0, 100))
 		# add in stuff to make sure you don't get the same vulnerability twice.
 		rhstr = ""
@@ -117,98 +117,108 @@ class Lsys:
 		#print rhstr
 		return rhstr
 
-	def processString1(oldStr):
+        def processString1(self, oldStr):#, oldStr):
 		newstr = ""
 		for ch in oldStr:
-			newstr = newstr + widenNetworks(ch)
+			newstr = newstr + self.widenNetworks(ch)
+                #self.axiom = newstr
 		#print newstr
 		return newstr
 
-	def processString2(oldStr):
+	def processString2(self, oldStr):
 		newstr = ""
 		for ch in oldStr:
-			newstr = newstr + populateBaseNetwork(ch)
+			newstr = newstr + self.populateBaseNetwork(ch)
 		#print newstr
 		return newstr
 
-	def processString3(oldStr):
+	def processString3(self, oldStr):
 		newstr = ""
 		for ch in oldStr:
-			newstr = newstr + deepenNetworks(ch)
+			newstr = newstr + self.deepenNetworks(ch)
 		#print newstr
 		return newstr
-	  
-	def processString4(oldStr):
+
+	def processString4(self, oldStr):
 		newstr = ""
 		for ch in oldStr:
-			newstr = newstr + stringifyNetworks(ch)
+			newstr = newstr + self.stringifyNetworks(ch)
 		#print newstr
 		return newstr
-	  
-	def processString5(oldStr):
+
+	def processString5(self, oldStr):
 		newstr = ""
 		for ch in oldStr:
-			newstr = newstr + createEndpoints(ch)
+			newstr = newstr + self.createEndpoints(ch)
 		#print newstr
 		return newstr
-	  
-	def processString6(oldStr):
+
+	def processString6(self, oldStr):
 		newstr = ""
 		for ch in oldStr:
-			newstr = newstr + capEndpoints(ch)
+			newstr = newstr + self.capEndpoints(ch)
 		#print newstr
 		return newstr
-	  
-	def processString7(oldStr):
+
+	def processString7(self, oldStr):
 		newstr = ""
 		for ch in oldStr:
-			newstr = newstr + vulnerablizeEndpoints(ch)
+			newstr = newstr + self.vulnerablizeEndpoints(ch)
 		#print newstr
 		return newstr
-	  
-	def processString8(oldStr):
+
+	def processString8(self, oldStr):
 		newstr = ""
 		for ch in oldStr:
-			newstr = newstr + finalizeVulnerabilities(ch)
+			newstr = newstr + self.finalizeVulnerabilities(ch)
 		#print newstr
 		return newstr
+
 
 	def __init__(self,numIters,axiom):
-		startString = axiom
-		endString = ""
+                self.numIters = numIters
+                self.axiom = axiom
+                #self.networkString = ""
 
-		endString = endString + __processString1(startString)
+        def buildString(self):
+		startString = self.axiom
+		endString = ""
+                #processString1()
+
+		endString = endString + self.processString1(startString)
 		startString = endString
 		endString = ""
 
-		endString = endString + __processString2(startString)
+		endString = endString + self.processString2(startString)
 		startString = endString
 		endString = ""
 
-		for i in range(numIters):
-			endString = endString + __processString3(startString)
+		for i in range(self.numIters):
+			endString = endString + self.processString3(startString)
 			startString = endString
 			endString = ""
 
-			endString = endString + __processString4(startString)
+			endString = endString + self.processString4(startString)
 			startString = endString
 			endString = ""
 
-			endString = endString + __processString5(startString)
+			endString = endString + self.processString5(startString)
 			startString = endString
 			endString = ""
-		
-		endString = endString + __processString6(startString)
+
+		endString = endString + self.processString6(startString)
 		startString = endString
 		endString = ""
 
-		endString = endString + __processString7(startString)
+		endString = endString + self.processString7(startString)
 		startString = endString
 		endString = ""
 
-		endString = endString + __processString8(startString)
+		endString = endString + self.processString8(startString)
 		startString = endString
 		endString = ""
-	  
-		return startString
-		print "done now"
+
+                self.axiom = startString
+               # startString = startString
+		#return startString
+		#print "done now"
