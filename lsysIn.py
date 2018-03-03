@@ -21,6 +21,7 @@ def dockerWriter(charList):
 
 	# Write static header
 	f.write('version: "3"\n')
+	f.write('services:\n')
 
 	# Don't look down....
 	for index, x in enumerate(charList):
@@ -58,7 +59,8 @@ def dockerWriter(charList):
 
 			# put stuff in the file here
 			e = open('home/' + machineName + '/Dockerfile', 'a')
-			e.write("FROM alpine\nCMD ['top']")
+			e.write("FROM alpine\n")
+			e.write("CMD ['top']\n")
 			e.close()
 
 			# iterate machNum
@@ -66,8 +68,11 @@ def dockerWriter(charList):
 
 			#### DOCKER COMPOSE FILE STUFF ####
 			f.write('  host%s:\n' % machineName)
-			f.write('    build: ./%s\n' % machineName)
+			f.write('    build: .\n')
 			f.write('    image: %s\n' % machineName)
+			if machineName == 0:
+				f.write('    ports:\n')
+				f.write('      -  "2222:22"\n')
 			f.write('    networks:\n')
 			f.write('      - %s\n' % ("network" + str(networkID[-1])))
 			if charList[index - 1] == '<':
@@ -81,12 +86,14 @@ def dockerWriter(charList):
 
 	for x in networkPrint:
 		f.write("  network%s:\n" % x)
-		f.write("    driver: bridge\n\n")
+		f.write("    driver: bridge\n")
+		if x != 0:
+			f.write("    internal\n")
 
 	# Close files
 	f.close()
 
-charList = lsys.Lsys(1, "N")
+charList = lsys.Lsys(2, "N")
 charList.buildString()
 #charList = "[EE<E<E><E>>][E<EE><EE<E><E>>]"
 dockerWriter(charList.axiom)

@@ -1,26 +1,18 @@
 import random
 
 class Lsys:
-	def widenNetworks(self, lhch):   # Rule 1
-		rnum = random.randint(0, 100)
+	def baseNetwork(self, lhch):
 		rhstr = ""
 		if lhch == 'N':
-			if rnum < 10:
-				rhstr = '[N][N]'
-			elif rnum < 70:
-				rhstr = '[N][N][N]'
-			else:
-				rhstr = '[N][N][N][N]'
-		else:
-			rhstr = lhch
-		#print rhstr
+			rhstr = '[N]'
+			
 		return rhstr
-
-	def populateBaseNetwork(self, lhch):   # Rule 2
+		
+	def populateBaseNetwork(self, lhch):
 		rnum = random.randint(0, 100)
-		rhstr = ""
+		rhstr = ""        
 		if lhch == 'N':
-			if rnum < 30:
+			if rnum < 60:
 				rhstr = '###'
 			elif rnum < 80:
 				rhstr = '####'
@@ -28,197 +20,156 @@ class Lsys:
 				rhstr = '#####'
 		else:
 			rhstr = lhch
-		#print rhstr
 		return rhstr
-
-	def deepenNetworks(self, lhch):   # Rule 3
+		
+	def hairifyNetwork(self, lhch):
 		rnum = random.randint(0, 100)
-		rhstr = ""
+		rhstr = ""        
 		if lhch == '#':
-			if rnum < 60:
+			if rnum < 70:
 				rhstr = '#'
-			elif rnum < 65:
-				rhstr = '#<#>'
-			elif rnum < 70:
-				rhstr = '#<##>'
-			elif rnum < 85:
+			elif rnum < 80:
+				rhstr = '#<#<#<#>>>'
+			elif rnum < 90:
+				rhstr = '#<#<#<#<#>>>>'
+			else:
+				rhstr = '#<#<#<#<#<#>>>>>'
+		else:
+			rhstr = lhch
+		return rhstr
+		
+	def chubbifyNetwork(self, lhch):
+		rnum = random.randint(0, 100)
+		rhstr = ""        
+		if lhch == '#':
+			if rnum < 70:
+				rhstr = '#'
+			elif rnum < 80:
 				rhstr = '#<###>'
+			elif rnum < 90:
+				rhstr = '#<####>'
 			else:
 				rhstr = '#<#####>'
 		else:
 			rhstr = lhch
-		#print rhstr
 		return rhstr
-
-	def stringifyNetworks(self, lhch):   # Rule 4
+		
+	def splitifyNetwork(self, lhch):
 		rnum = random.randint(0, 100)
-		rhstr = ""
+		rhstr = ""        
 		if lhch == '#':
-			if rnum < 80:
+			if rnum < 70:
 				rhstr = '#'
 			elif rnum < 90:
-				rhstr = '#<#>'
+				rhstr = '#<#><#>'
 			else:
-				rhstr = '#<#<#>>'
+				rhstr = '#<#><#><#>'
 		else:
 			rhstr = lhch
-		#print rhstr
 		return rhstr
-
-	def createEndpoints(self, lhch):   # Rule 5
-		rnum = random.randint(0, 100)
-		rhstr = ""
-		if lhch == '#':
-			if rnum < 30:
-				rhstr = 'E'
-			else:
-				rhstr = '#'
-		else:
-			rhstr = lhch
-		#print rhstr
-		return rhstr
-
-	def capEndpoints(self, lhch):   # Rule 6
+		
+	def stuffEnds(self, lhch):
 		rhstr = ""
 		if lhch == '#':
 			rhstr = 'E'
 		else:
 			rhstr = lhch
-		#print rhstr
 		return rhstr
-
-	def vulnerablizeEndpoints(self, lhch):   # Rule 7
+		
+	def chanceToStuffEnds(self, lhch):
 		rnum = random.randint(0, 100)
 		rhstr = ""
-		if lhch == 'E':
-			if rnum < 60:
+		if lhch == '#':
+			if rnum < 90:
 				rhstr = 'E'
-			elif rnum < 70:
-				rhstr = 'E{V}'
-			elif rnum < 80:
-				rhstr = 'E{VV}'
-			elif rnum < 90:
-				rhstr = 'E{VVV}'
 			else:
-				rhstr = 'E{VVVVV}'
+				rhstr = '#'
 		else:
 			rhstr = lhch
-		#print rhstr
 		return rhstr
 
-	def finalizeVulnerabilities(self, lhch):   # Rule 8
-		rnum = str(random.randint(0, 100))
-		# add in stuff to make sure you don't get the same vulnerability twice.
-		rhstr = ""
-		if lhch == 'V':
-			rhstr = rnum + ","
-		else:
-			rhstr = lhch
-		#print rhstr
-		return rhstr
-
-        def processString1(self, oldStr):#, oldStr):
+	def processBaseNetwork(self, oldStr):
 		newstr = ""
 		for ch in oldStr:
-			newstr = newstr + self.widenNetworks(ch)
-                #self.axiom = newstr
-		#print newstr
+			newstr = newstr + self.baseNetwork(ch)
 		return newstr
-
-	def processString2(self, oldStr):
+		
+	def processPopulateBaseNetwork(self, oldStr):
 		newstr = ""
 		for ch in oldStr:
 			newstr = newstr + self.populateBaseNetwork(ch)
-		#print newstr
 		return newstr
-
-	def processString3(self, oldStr):
+		
+	def processHairifyNetwork(self, oldStr):
 		newstr = ""
 		for ch in oldStr:
-			newstr = newstr + self.deepenNetworks(ch)
-		#print newstr
+			newstr = newstr + self.hairifyNetwork(ch)
 		return newstr
-
-	def processString4(self, oldStr):
+		
+	def processChubbifyNetwork(self, oldStr):
 		newstr = ""
 		for ch in oldStr:
-			newstr = newstr + self.stringifyNetworks(ch)
-		#print newstr
+			newstr = newstr + self.chubbifyNetwork(ch)
 		return newstr
-
-	def processString5(self, oldStr):
+		
+	def processStuffEnds(self, oldStr):
 		newstr = ""
 		for ch in oldStr:
-			newstr = newstr + self.createEndpoints(ch)
-		#print newstr
+			newstr = newstr + self.stuffEnds(ch)
 		return newstr
-
-	def processString6(self, oldStr):
+		
+	def processChanceToStuffEnds(self, oldStr):
 		newstr = ""
 		for ch in oldStr:
-			newstr = newstr + self.capEndpoints(ch)
-		#print newstr
+			newstr = newstr + self.chanceToStuffEnds(ch)
 		return newstr
-
-	def processString7(self, oldStr):
+		
+	def processSplitifyNetwork(self, oldStr):
 		newstr = ""
 		for ch in oldStr:
-			newstr = newstr + self.vulnerablizeEndpoints(ch)
-		#print newstr
+			newstr = newstr + self.splitifyNetwork(ch)
 		return newstr
-
-	def processString8(self, oldStr):
-		newstr = ""
-		for ch in oldStr:
-			newstr = newstr + self.finalizeVulnerabilities(ch)
-		#print newstr
-		return newstr
-
 
 	def __init__(self,numIters,axiom):
                 self.numIters = numIters
                 self.axiom = axiom
-                #self.networkString = ""
 
-        def buildString(self):
+	def buildString(self):
 		startString = self.axiom
 		endString = ""
-                #processString1()
 
-		endString = endString + self.processString1(startString)
+		# Stuff before iterables go here
+		endString = endString + self.processBaseNetwork(startString)
+		startString = endString
+		endString = ""
+		
+		endString = endString + self.processPopulateBaseNetwork(startString)
 		startString = endString
 		endString = ""
 
-		endString = endString + self.processString2(startString)
-		startString = endString
-		endString = ""
-
+		# Iterables go here
 		for i in range(self.numIters):
-			endString = endString + self.processString3(startString)
+			endString = endString + self.processHairifyNetwork(startString)
 			startString = endString
 			endString = ""
-
-			endString = endString + self.processString4(startString)
+			
+			endString = endString + self.processChubbifyNetwork(startString)
 			startString = endString
 			endString = ""
-
-			endString = endString + self.processString5(startString)
+			
+			endString = endString + self.processSplitifyNetwork(startString)
 			startString = endString
 			endString = ""
-
-		endString = endString + self.processString6(startString)
+			
+			#endString = endString + self.processChanceToStuffEnds(startString)
+			#startString = endString
+			#endString = ""
+		
+		# Stuff after iterables go here
+		endString = endString + self.processStuffEnds(startString)
 		startString = endString
 		endString = ""
+		
+		print(startString)
 
-		endString = endString + self.processString7(startString)
-		startString = endString
-		endString = ""
-
-		endString = endString + self.processString8(startString)
-		startString = endString
-		endString = ""
-
-                self.axiom = startString
-               # startString = startString
-		#return startString
-		#print "done now"
+		self.axiom = startString
