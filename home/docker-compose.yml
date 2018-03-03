@@ -1,0 +1,161 @@
+version: "3"
+  hostmachine_0:
+    build: ./machine_0
+    image: machine_0
+    networks:
+      - network0
+  hostdevice_1:
+    build: ./device_1
+    image: device_1
+    networks:
+      - network1
+      - network0
+  hostmachine_2:
+    build: ./machine_2
+    image: machine_2
+    networks:
+      - network0
+  hostmachine_3:
+    build: ./machine_3
+    image: machine_3
+    networks:
+      - network0
+  hostmachine_4:
+    build: ./machine_4
+    image: machine_4
+    networks:
+      - network0
+  hostdevice_5:
+    build: ./device_5
+    image: device_5
+    networks:
+      - network2
+      - network0
+  hostmachine_6:
+    build: ./machine_6
+    image: machine_6
+    networks:
+      - network2
+  hostmachine_7:
+    build: ./machine_7
+    image: machine_7
+    networks:
+      - network2
+  hostdevice_8:
+    build: ./device_8
+    image: device_8
+    networks:
+      - network3
+      - network2
+  hostmachine_9:
+    build: ./machine_9
+    image: machine_9
+    networks:
+      - network4
+  hostmachine_10:
+    build: ./machine_10
+    image: machine_10
+    networks:
+      - network4
+  hostdevice_11:
+    build: ./device_11
+    image: device_11
+    networks:
+      - network5
+      - network4
+  hostdevice_12:
+    build: ./device_12
+    image: device_12
+    networks:
+      - network6
+      - network5
+  hostmachine_13:
+    build: ./machine_13
+    image: machine_13
+    networks:
+      - network4
+  hostmachine_14:
+    build: ./machine_14
+    image: machine_14
+    networks:
+      - network4
+  hostmachine_15:
+    build: ./machine_15
+    image: machine_15
+    networks:
+      - network4
+  hostmachine_16:
+    build: ./machine_16
+    image: machine_16
+    networks:
+      - network7
+  hostdevice_17:
+    build: ./device_17
+    image: device_17
+    networks:
+      - network8
+      - network7
+  hostdevice_18:
+    build: ./device_18
+    image: device_18
+    networks:
+      - network9
+      - network8
+  hostmachine_19:
+    build: ./machine_19
+    image: machine_19
+    networks:
+      - network7
+  hostmachine_20:
+    build: ./machine_20
+    image: machine_20
+    networks:
+      - network7
+  hostmachine_21:
+    build: ./machine_21
+    image: machine_21
+    networks:
+      - network7
+  hostdevice_22:
+    build: ./device_22
+    image: device_22
+    networks:
+      - network10
+      - network7
+
+################ NETWORKING ################
+networks:
+
+  network0:
+    driver: bridge
+
+  network1:
+    driver: bridge
+
+  network2:
+    driver: bridge
+
+  network3:
+    driver: bridge
+
+  network4:
+    driver: bridge
+
+  network5:
+    driver: bridge
+
+  network6:
+    driver: bridge
+
+  network7:
+    driver: bridge
+
+  network8:
+    driver: bridge
+
+  network9:
+    driver: bridge
+
+  network10:
+    driver: bridge
+
