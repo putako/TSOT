@@ -1,0 +1,142 @@
+version: "3"
+services:
+  hostmachine_0:
+    build: .
+    image: machine_0
+    networks:
+      - network0
+  hostdevice_1:
+    build: .
+    image: device_1
+    networks:
+      - network1
+      - network0
+  hostdevice_2:
+    build: .
+    image: device_2
+    networks:
+      - network2
+      - network0
+  hostdevice_3:
+    build: .
+    image: device_3
+    networks:
+      - network3
+      - network0
+  hostmachine_4:
+    build: .
+    image: machine_4
+    networks:
+      - network3
+  hostmachine_5:
+    build: .
+    image: machine_5
+    networks:
+      - network3
+  hostmachine_6:
+    build: .
+    image: machine_6
+    networks:
+      - network0
+  hostdevice_7:
+    build: .
+    image: device_7
+    networks:
+      - network4
+      - network0
+  hostmachine_8:
+    build: .
+    image: machine_8
+    networks:
+      - network4
+  hostdevice_9:
+    build: .
+    image: device_9
+    networks:
+      - network5
+      - network4
+  hostdevice_10:
+    build: .
+    image: device_10
+    networks:
+      - network6
+      - network4
+  hostdevice_11:
+    build: .
+    image: device_11
+    networks:
+      - network7
+      - network4
+  hostmachine_12:
+    build: .
+    image: machine_12
+    networks:
+      - network4
+  hostdevice_13:
+    build: .
+    image: device_13
+    networks:
+      - network8
+      - network4
+  hostdevice_14:
+    build: .
+    image: device_14
+    networks:
+      - network9
+      - network4
+  hostmachine_15:
+    build: .
+    image: machine_15
+    networks:
+      - network0
+  hostdevice_16:
+    build: .
+    image: device_16
+    networks:
+      - network10
+      - network0
+  hostdevice_17:
+    build: .
+    image: device_17
+    networks:
+      - network11
+      - network0
+
+################ NETWORKING ################
+networks:
+
+  network0:
+    driver: bridge
+  network1:
+    driver: bridge
+    internal
+  network2:
+    driver: bridge
+    internal
+  network3:
+    driver: bridge
+    internal
+  network4:
+    driver: bridge
+    internal
+  network5:
+    driver: bridge
+    internal
+  network6:
+    driver: bridge
+    internal
+  network7:
+    driver: bridge
+    internal
+  network8:
+    driver: bridge
+    internal
+  network9:
+    driver: bridge
+    internal
+  network10:
+    driver: bridge
+    internal
+  network11:
+    driver: bridge
+    internal
