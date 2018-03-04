@@ -88,7 +88,7 @@ def dockerWriter(charList):
 		f.write("  network%s:\n" % x)
 		f.write("    driver: bridge\n")
 		if x != 0:
-			f.write("    internal\n")
+                    f.write("    internal: true\n")
 
 	# Close files
 	f.close()
