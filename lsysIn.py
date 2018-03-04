@@ -93,7 +93,7 @@ def dockerWriter(charList):
 	# Close files
 	f.close()
 
-charList = lsys.Lsys(2, "N")
+charList = lsys.Lsys(1, "N")
 charList.buildString()
 #charList = "[EE<E<E><E>>][E<EE><EE<E><E>>]"
 dockerWriter(charList.axiom)
